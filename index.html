@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="reg-box">
+            <form method="POST" autocomplete="off" name="google-sheet">
+            <h2>Kindly Register Here</h2>
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <input type="text" name="name" placeholder="Enter Your Name" required>
+            <br>
+            <i class="fa fa-mobile" aria-hidden="true"></i>
+            <input type="number" name="pn" placeholder="Enter Your Phone Number" required>
+            <br>
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <input type="email" name="mail" placeholder="Enter Your E-Mail" required>
+
+            <br>
+
+            <button type="submit" class="reg">Register</button>
+
+        </form>
+        </div>
+    </div>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbw7YaZjyncWO1dcaYt5BzT-664UILwwHYmhxygvc1Q1wkgoIgc/exec'
+        const form = document.forms['google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => window.location="https://dinesh-400.github.io/profilecard.github.io")
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+
+</body>
+
+</html>
